@@ -13,6 +13,9 @@
 		0116EDF223454819003517C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0116EDF023454819003517C5 /* Main.storyboard */; };
 		0116EDF42345481A003517C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0116EDF32345481A003517C5 /* Assets.xcassets */; };
 		0116EDF72345481A003517C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0116EDF52345481A003517C5 /* LaunchScreen.storyboard */; };
+		0116EE0023454A9D003517C5 /* LogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0116EDFF23454A9D003517C5 /* LogsViewController.swift */; };
+		0116EE0323454C07003517C5 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0116EE0223454C07003517C5 /* Log.swift */; };
+		0116EE0523455D61003517C5 /* LogsDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0116EE0423455D61003517C5 /* LogsDeck.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		0116EDF32345481A003517C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0116EDF62345481A003517C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0116EDF82345481A003517C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0116EDFF23454A9D003517C5 /* LogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsViewController.swift; sourceTree = "<group>"; };
+		0116EE0223454C07003517C5 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		0116EE0423455D61003517C5 /* LogsDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsDeck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,34 @@
 		0116EDE923454819003517C5 /* Project 1 Mahe Nick */ = {
 			isa = PBXGroup;
 			children = (
+				0116EE0123454BF3003517C5 /* Models */,
+				0116EDFE23454A4D003517C5 /* Controllers */,
 				0116EDEA23454819003517C5 /* AppDelegate.swift */,
 				0116EDEC23454819003517C5 /* SceneDelegate.swift */,
-				0116EDEE23454819003517C5 /* ViewController.swift */,
 				0116EDF023454819003517C5 /* Main.storyboard */,
 				0116EDF32345481A003517C5 /* Assets.xcassets */,
 				0116EDF52345481A003517C5 /* LaunchScreen.storyboard */,
 				0116EDF82345481A003517C5 /* Info.plist */,
 			);
 			path = "Project 1 Mahe Nick";
+			sourceTree = "<group>";
+		};
+		0116EDFE23454A4D003517C5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0116EDEE23454819003517C5 /* ViewController.swift */,
+				0116EDFF23454A9D003517C5 /* LogsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0116EE0123454BF3003517C5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0116EE0223454C07003517C5 /* Log.swift */,
+				0116EE0423455D61003517C5 /* LogsDeck.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +165,10 @@
 			files = (
 				0116EDEF23454819003517C5 /* ViewController.swift in Sources */,
 				0116EDEB23454819003517C5 /* AppDelegate.swift in Sources */,
+				0116EE0323454C07003517C5 /* Log.swift in Sources */,
+				0116EE0523455D61003517C5 /* LogsDeck.swift in Sources */,
 				0116EDED23454819003517C5 /* SceneDelegate.swift in Sources */,
+				0116EE0023454A9D003517C5 /* LogsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
