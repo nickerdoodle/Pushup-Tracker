@@ -11,11 +11,12 @@ import UIKit
 class PushupsFormViewController:UIViewController{
     
     // Properties
-    private var pushupsCompleted: Int = 5
+    private var pushupsCompleted: Int = 0
     private var pushupDate: String = ""
     private var year: Int = 0
     private var month: Int = 0
     private var day: Int = 0
+    private var pushupsValid: Bool = false
     
     private struct Key{
         static let logs = "Logs"
@@ -32,13 +33,20 @@ class PushupsFormViewController:UIViewController{
     // Will store the value of pushups completed
 
     @IBAction func pushupNumberChanged(_ sender: UITextField) {
+        
         if let userInput = sender.text{
             if let text = Int(userInput){
-                pushupsCompleted = text
-                //pushupsCompleted = pushupCount.text
+                if text < 0 {
+                    pushupsValid = false
+                }
+                else{
+                    pushupsCompleted = text
+                    pushupsValid = true
+                }
+                
             }
             else{
-                
+                pushupsValid = false
             }
         }
         else{
@@ -58,34 +66,31 @@ class PushupsFormViewController:UIViewController{
     // Story the entry into the logs
     @IBAction func pushupSubmit(_ sender: UIButton) {
         LogsDeck.totalPushups = 0
-        LogsDeck.sharedInstance.logs.append(Log(date: pushupDate, pushups: pushupsCompleted))
-        model = LogsDeck.sharedInstance.logs
-        for entry in model{
-            LogsDeck.totalPushups += entry.pushups
+        
+        if pushupsValid {
+            LogsDeck.sharedInstance.logs.append(Log(date: pushupDate, pushups: pushupsCompleted))
         }
+        
+        model = LogsDeck.sharedInstance.logs
+        /*for entry in model{
+            LogsDeck.totalPushups += entry.pushups
+        }*/
         
         let propertyListModel = model.map { $0.propertyList }
         
         UserDefaults.standard.set(propertyListModel, forKey: "Logs")
-        //UserDefaults.standard.set(LogsDeck.sharedInstance.logs, forKey: "Logs")
-        //UserDefaults.standard.set(dict, forKey:"Logs")
-        //print(pushupsCompleted, pushupDate, year, month, day)
+        
+        
     }
     
     
     
-   /*
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        initializeModel()
+        pushupsValid = false
     }
-    private func initializeModel(){
-        model.removeAll()
-        
-        model.append(Log(date: "12/10/2019", pushups: 10))
-    }
- */
+    
     
     
     

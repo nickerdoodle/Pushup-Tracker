@@ -11,9 +11,10 @@ import UIKit
 class LogsViewController:UITableViewController{
 
     private struct Storyboard{
+        //probably don't need line below either
         static let showQuoteSegueIdentifier = "ShowQuote"
         static let topicCellIdentifier = "TopicCell"
-        static let totalCellIdentifier = "TotalCell"
+        //static let totalCellIdentifier = "TotalCell"
     }
     
     var model: [Log] = []
@@ -66,19 +67,23 @@ dateFormatter.dateFormat = "dd/MM/yyyy"*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         loadModel()
         
     }
     
     private func loadModel() {
         if let storedModel = UserDefaults.standard.array(forKey: "Logs") as? [[Any]] {
+            
             model.removeAll()
             print(storedModel)
             for propertyListPresident in storedModel {
                 if let log = Log(propertyList: propertyListPresident) {
                     model.append(log)
                 }
+            }
+            for entry in model{
+                LogsDeck.totalPushups += entry.pushups
             }
             LogsDeck.sharedInstance.logs = model
         }
