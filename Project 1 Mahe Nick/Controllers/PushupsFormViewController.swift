@@ -27,26 +27,10 @@ class PushupsFormViewController:UIViewController{
     @IBOutlet weak var pushupCount: UITextField!
     @IBOutlet weak var pushupDatePicker: UIDatePicker!
     
-    
-    
     // Actions
     
     // Will store the value of pushups completed
-    /*@IBAction func pushupNumber(_ sender: UITextField) {
-        if let userInput = sender.text{
-            if let text = Int(userInput){
-                pushupsCompleted = text
-                //pushupsCompleted = pushupCount.text
-            }
-            else{
-                
-            }
-        }
-        else{
-            
-        }
-    }*/
-    
+
     @IBAction func pushupNumberChanged(_ sender: UITextField) {
         if let userInput = sender.text{
             if let text = Int(userInput){
@@ -62,7 +46,7 @@ class PushupsFormViewController:UIViewController{
         }
     }
     
-    // Store the value of date pushups were completed
+    // Store the value of the date the pushups were completed
     @IBAction func pushupDate(_ sender: UIDatePicker) {
         year = sender.calendar.component(Calendar.Component.year, from: sender.date)
         month = sender.calendar.component(Calendar.Component.month, from: sender.date)
@@ -73,12 +57,13 @@ class PushupsFormViewController:UIViewController{
     
     // Story the entry into the logs
     @IBAction func pushupSubmit(_ sender: UIButton) {
+        LogsDeck.totalPushups = 0
         LogsDeck.sharedInstance.logs.append(Log(date: pushupDate, pushups: pushupsCompleted))
         model = LogsDeck.sharedInstance.logs
-        var dict:[String:Int] = [:]
-        for entry in LogsDeck.sharedInstance.logs{
-            dict[entry.date] = entry.pushups
+        for entry in model{
+            LogsDeck.totalPushups += entry.pushups
         }
+        
         let propertyListModel = model.map { $0.propertyList }
         
         UserDefaults.standard.set(propertyListModel, forKey: "Logs")

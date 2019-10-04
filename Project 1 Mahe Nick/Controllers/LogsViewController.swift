@@ -26,24 +26,26 @@ dateFormatter.dateFormat = "dd/MM/yyyy"*/
 
     //Table view data source
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        //print(UserDefaults.standard.array(forKey: "Logs") as? [Any] ?? [Log]())
-        //LogsDeck.sharedInstance.logs = []
-        //LogsDeck.sharedInstance.logs = UserDefaults.standard.array(forKey:"Logs") as? [Log] ?? [Log]()
-        //var test = UserDefaults.standard.object(forKey:"Logs") as? [Log] ?? [Log]()
-        //print(test)
-       /* if LogsDeck.sharedInstance.logs.count != 0{*/
+        
+        if indexPath.row < model.count{
             let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.topicCellIdentifier, for: indexPath)
            
             cell.textLabel?.text = "\(model[indexPath.row].date) \t\t\t Pushups: \(model[indexPath.row].pushups)"
-            /*return cell
+
+            return cell
         }
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "Go to the tracker to create your first pushup entry!"
-        */
-        return cell
-        
-        
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.topicCellIdentifier, for: indexPath)
+            
+            cell.textLabel?.text = "Total Pushups: \(LogsDeck.totalPushups)"
+
+             return cell
+        }
     }
+    
+    
+    
+    
     
     
     // Add this to update total pushups
@@ -51,27 +53,22 @@ dateFormatter.dateFormat = "dd/MM/yyyy"*/
     tableView.dequeueReusableCell(withIdentifier: Storyboard.totalCellIdentifier, for: indexPath)*/
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return LogsDeck.sharedInstance.logs.count
+        return LogsDeck.sharedInstance.logs.count + 1
     }
     
     //Table view delegate
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        //selectedTopic = LogsDeck.sharedInstance.logs[indexPath.row]
+
         performSegue(withIdentifier: Storyboard.showQuoteSegueIdentifier, sender: self)
     }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //UserDefaults.standard.removeObject(forKey: "Logs")
-        initializeModel()
+
         loadModel()
-    }
-    private func initializeModel(){
-        //model.removeAll()
         
-        //model.append(Log(date: "12/10/2019", pushups: 10))
     }
     
     private func loadModel() {
