@@ -18,7 +18,7 @@
 		0116EE0523455D61003517C5 /* LogsDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0116EE0423455D61003517C5 /* LogsDeck.swift */; };
 		0116EE072345796C003517C5 /* PushupsFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0116EE062345796C003517C5 /* PushupsFormViewController.swift */; };
 		0116EE09234637E2003517C5 /* President.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0116EE08234637E2003517C5 /* President.swift */; };
-		0116EE0B2346383E003517C5 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0116EE0A2346383E003517C5 /* MasterViewController.swift */; };
+		0116EE0D23479785003517C5 /* PushupsWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0116EE0C23479785003517C5 /* PushupsWebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 		0116EE0423455D61003517C5 /* LogsDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsDeck.swift; sourceTree = "<group>"; };
 		0116EE062345796C003517C5 /* PushupsFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushupsFormViewController.swift; sourceTree = "<group>"; };
 		0116EE08234637E2003517C5 /* President.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = President.swift; sourceTree = "<group>"; };
-		0116EE0A2346383E003517C5 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		0116EE0C23479785003517C5 /* PushupsWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushupsWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,7 @@
 				0116EDEE23454819003517C5 /* ViewController.swift */,
 				0116EDFF23454A9D003517C5 /* LogsViewController.swift */,
 				0116EE062345796C003517C5 /* PushupsFormViewController.swift */,
-				0116EE0A2346383E003517C5 /* MasterViewController.swift */,
+				0116EE0C23479785003517C5 /* PushupsWebViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -177,9 +177,9 @@
 				0116EDEF23454819003517C5 /* ViewController.swift in Sources */,
 				0116EDEB23454819003517C5 /* AppDelegate.swift in Sources */,
 				0116EE0323454C07003517C5 /* Log.swift in Sources */,
-				0116EE0B2346383E003517C5 /* MasterViewController.swift in Sources */,
 				0116EE0523455D61003517C5 /* LogsDeck.swift in Sources */,
 				0116EDED23454819003517C5 /* SceneDelegate.swift in Sources */,
+				0116EE0D23479785003517C5 /* PushupsWebViewController.swift in Sources */,
 				0116EE0023454A9D003517C5 /* LogsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,28 +10,28 @@ import UIKit
 
 class LogsViewController:UITableViewController{
 
+    //Properties
+    
     private struct Storyboard{
-        //probably don't need line below either
-        static let showQuoteSegueIdentifier = "ShowQuote"
+
         static let topicCellIdentifier = "TopicCell"
         //static let totalCellIdentifier = "TotalCell"
     }
     
+    private struct Key{
+        static let logs = "Logs"
+    }
+    
     var model: [Log] = []
-
-//Helpers for dates
-
-/*let dateFormatter = DateFormatter()
-
-dateFormatter.dateFormat = "dd/MM/yyyy"*/
 
     //Table view data source
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         if indexPath.row < model.count{
             let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.topicCellIdentifier, for: indexPath)
-           
-            cell.textLabel?.text = "\(model[indexPath.row].date) \t\t\t Pushups: \(model[indexPath.row].pushups)"
+
+            cell.textLabel?.text = "\(model[indexPath.row].date)"
+            cell.detailTextLabel?.text = "Pushups: \(model[indexPath.row].pushups)"
 
             return cell
         }
@@ -43,27 +43,12 @@ dateFormatter.dateFormat = "dd/MM/yyyy"*/
              return cell
         }
     }
-    
-    
-    
-    
-    
-    
-    // Add this to update total pushups
-    /*let totalPushupsCell =
-    tableView.dequeueReusableCell(withIdentifier: Storyboard.totalCellIdentifier, for: indexPath)*/
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return LogsDeck.sharedInstance.logs.count + 1
     }
     
     //Table view delegate
-    
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-
-        performSegue(withIdentifier: Storyboard.showQuoteSegueIdentifier, sender: self)
-    }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,12 +56,15 @@ dateFormatter.dateFormat = "dd/MM/yyyy"*/
         loadModel()
         
     }
+ 
+    //Helpers
     
     private func loadModel() {
-        if let storedModel = UserDefaults.standard.array(forKey: "Logs") as? [[Any]] {
+        if let storedModel = UserDefaults.standard.array(forKey: Key.logs) as? [[Any]] {
             
             model.removeAll()
-            print(storedModel)
+            LogsDeck.totalPushups = 0
+            
             for propertyListPresident in storedModel {
                 if let log = Log(propertyList: propertyListPresident) {
                     model.append(log)

@@ -72,19 +72,16 @@ class PushupsFormViewController:UIViewController{
         }
         
         model = LogsDeck.sharedInstance.logs
-        /*for entry in model{
-            LogsDeck.totalPushups += entry.pushups
-        }*/
         
         let propertyListModel = model.map { $0.propertyList }
         
-        UserDefaults.standard.set(propertyListModel, forKey: "Logs")
+        UserDefaults.standard.set(propertyListModel, forKey: Key.logs)
         
         
     }
     
     
-    
+    //Table View Delegate
    
     override func viewDidLoad() {
         super.viewDidLoad()
